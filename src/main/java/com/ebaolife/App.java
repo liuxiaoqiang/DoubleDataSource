@@ -11,6 +11,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ebaolife.model.ApplicationProperties;
 import com.ebaolife.model.DataSource;
 
 @SpringBootApplication
@@ -25,6 +26,9 @@ public class App extends SpringBootServletInitializer
 	@Autowired
 	private DataSource secondaryDataSource;
  
+	@Autowired
+	private ApplicationProperties applicationProperties;
+	
 	public static void main( String[] args )
     {
         SpringApplication.run(App.class, args);
@@ -39,5 +43,6 @@ public class App extends SpringBootServletInitializer
     public void hello(){
     	System.out.println(primaryDataSource);
     	System.out.println(secondaryDataSource);
+    	System.out.println(applicationProperties);
     }
 }
